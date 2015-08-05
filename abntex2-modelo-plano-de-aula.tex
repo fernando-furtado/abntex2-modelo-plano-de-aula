@@ -1,0 +1,418 @@
+%% abtex2-modelo-artigo.tex, v-1.9.5 laurocesar
+%% Copyright 2012-2015 by abnTeX2 group at http://www.abntex.net.br/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://www.abntex.net.br/
+%%
+%% This work consists of the files abntex2-modelo-artigo.tex and
+%% abntex2-modelo-references.bib
+%%
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Artigo Acadêmico em conformidade com
+% ABNT NBR 6022:2003: Informação e documentação - Artigo em publicação 
+% periódica científica impressa - Apresentação
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\documentclass[
+	% -- opções da classe memoir --
+	article,			% indica que é um artigo acadêmico
+	12pt,				% tamanho da fonte
+	twoside,			% para impressão apenas no verso. Oposto a twoside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE % títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	sumario=tradicional
+]{abntex2-modelo-plano-de-aula}
+
+
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{nomencl} 			% Lista de simbolos
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{datetime}           % Tempo e hora.
+\usepackage{epstopdf}
+% ---
+		
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+		
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+% ---
+
+\usepackage{listings}
+\usepackage{amsmath}		
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{booktabs} % Para Tabelas
+\usepackage{subfig}  % permite ter subfiguras
+\usepackage{float}
+\usepackage{tikz,pgfplots}
+\usepackage{pdfpages}
+\usepackage{longtable}
+\usepackage{framed}
+
+% ---
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\DeclareMathOperator{\deriv}{d}		
+
+
+
+\newcounter{NumberInTable}
+\newcommand{\LTNUM}{\stepcounter{NumberInTable}{(\theNumberInTable)}}
+
+\newcommand{\Laplace}[1]{\ensuremath{\mathcal{L}{\left[#1\right]}}}
+\newcommand{\InvLap}[1]{\ensuremath{\mathcal{L}^{-1}{\left[#1\right]}}}
+
+
+
+% Definição de cores
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+\lstset{ %
+	aboveskip=3mm,
+	belowskip=3mm,
+	backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+	basicstyle={\small\ttfamily},        % the size of the fonts that are used for the code
+	breakatwhitespace=true,         % sets if automatic breaks should only happen at whitespace
+	breaklines=true,                 % sets automatic line breaking
+	captionpos=t,                    % sets the caption-position to bottom
+	commentstyle=\color{mygreen},    % comment style
+	columns=flexible,
+	deletekeywords={...},            % if you want to delete keywords from the given language
+	escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+	extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+	frame=tb,                        % adds a frame around the code
+	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+	keywordstyle=\color{blue},       % keyword style
+	language=Matlab,                 % the language of the code
+	morekeywords={*,...},            % if you want to add more keywords to the set
+	numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+	numbersep=5pt,                   % how far the line-numbers are from the code
+	numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+	rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+	showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+	showstringspaces=false,          % underline spaces within strings only
+	showtabs=false,                  % show tabs within strings adding particular underscores
+	stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+	stringstyle=\color{mymauve},     % string literal style
+	tabsize=3,                       % sets default tabsize to 3 spaces
+	texcl=true,						 % Permite o uso de acentuação no código
+	title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+%By default, listings does not support multi-byte encoding for source code. The extendedchar option only works for 8-bits encodings such as latin1.
+%
+%To handle UTF-8, you should tell listings how to interpret the special characters by defining them like so
+\lstset{literate=	
+	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+	{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+	{À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+	{ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+	{Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+	{â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+	{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1	 
+	{œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+	{ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+	{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+	{€}{{\EUR}}1 {£}{{\pounds}}1 {ã}{{\~a}}1 {õ}{{\~o}}1 {Ã}{{\~A}}1 {Õ}{{\~O}}1	
+}
+
+\renewcommand{\lstlistingname}{Código--fonte }% Listing -> Algorithm
+\renewcommand{\lstlistlistingname}{Lista de códigos--fonte}% List of Listings -> List of Algorithms
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+	Nenhuma citação no texto.%
+	\or
+	Citado na página #2.%
+	\else
+	Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\universidade{Universidade Federal de Santa Catarina}
+\centro{CTC -- Centro Tecnológico}
+\departamento{Departamento de Engenharia Elétrica e Eletrônica}
+\local{Florianópolis}
+\data{\today}
+
+\autor{Prof. Nome \textsc{Sobrenome}, Dr. Eng.}
+
+\tipotrabalho{Notas de Aula}
+\disciplina{Eletrônica Industrial}
+\codigo{EEL 7278} % Código da disciplina
+\semestre{2015/2}
+\aula{Aula 01}
+\titulo{Modelo Canônico de Notas de Aula com \abnTeX}
+
+\preambulo{Modelo canônico de notas de aula em conformidade
+	com as normas ABNT apresentado à comunidade de usuários \LaTeX.}
+
+\email{adriano.ruseler@posgrad.ufsc.br}
+\telefone{Tel: +55 (48) 3721-7464, 3721-7445}
+\celular{Cel: +55 (48) 88459814, 91273585}
+\website{\url{http://www.adrianoruseler.com}}
+\laboratorio{INEP -- Instituto de Eletrônica de Potência}
+\campus{Campus Universitário – Trindade, Florianópolis}
+\turma{Minha turma}
+\horario{Meu horário}
+\sala{Minha sala}
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={Modelo de Notas de Aulas com abnTeX2},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{notas de aula}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=black,          	% color of internal links
+    	citecolor=black,        		% color of links to bibliography
+    	filecolor=black,      		% color of file links
+		urlcolor=black,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ---
+% Altera as margens padrões
+% ---
+\setlrmarginsandblock{3cm}{3cm}{*}
+\setulmarginsandblock{3cm}{3cm}{*}
+\checkandfixthelayout
+% ---
+
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% Espaçamento simples
+\SingleSpacing
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+
+%\imprimircapaUFSC 
+
+\imprimirletterUFSC
+
+% ]  				% FIM DE ARTIGO EM DUAS COLUNAS
+% ---
+
+
+
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+\pagestyle{notasUFSC}
+
+
+
+\begin{snugshade}
+	\section{Objetivos} % a serem alcançados pelos alunos e não pelo professor. Podem ser divididos em gerais e específicos. 
+\end{snugshade}
+
+\subsection{Geral} % projeta resultado geral relativo a execução de conteúdos e procedimentos.
+
+Apresentar o princípio de funcionamento das principais topologias retificadoras,
+e uma metodologia de cálculo para projeto das mesmas.
+
+Capacitação para a realização de uma simulação numérica no software PSIM, objetivando a verificação das principais formas de onda e da validades dos cálculos realizados.
+
+Confecção de uma planilha de cálculo, com o uso do software MATHCAD, objetivando o dimensionamento e projeto de uma aplicação hipotética;
+
+
+
+
+\subsection{Específicos} % especificam resultados esperados observáveis (geralmente de 3 a 4).
+
+\begin{itemize}
+	
+	\item Obter as principais formas de onda da topologia.
+	\item Equacionar os valores eficazes da corrente de entrada e de saída...
+	\item Simular no PSIM... 
+	\item Montar uma planilha de cálculo...
+	
+\end{itemize}
+
+\newpage
+
+\begin{snugshade}
+	\section{Conteúdos} % conteúdos programados para a aula organizados em tópicos (de 4 a 8).
+\end{snugshade}
+
+\begin{enumerate}
+	\item Retificadores a diodo
+	\begin{itemize}	
+		\item Retificadores a diodo..; %---> inclui definição dos termos 
+		\item Carga resistiva;
+		\item A racionalidade e a história da busca pela liberdade;
+		\item O legado de Hegel.	
+	\end{itemize}
+\end{enumerate}
+
+
+\begin{snugshade}
+	\section{Procedimentos metodológicos} % estratégias relevantes adotadas para alcançar os objetivos.
+\end{snugshade}
+
+A metodologia de ensino inicia-se com a verificação dos pré-requisitos necessários para o entendimento da aula a ser ministrada. Está verificação é realizada com uma breve revisão seguida de questionamentos aos alunos.
+
+A estrutura foco da aula será apresentada iniciando-se pelas etapas de operação, seguindo-se para a apresentação das principais formas de onda. Simulações exploratórias serão apresentadas para verificar a validade do que foi apresentado.
+
+Em seguida, valores relevantes ao projeto e dimensionamento da topologia de potência será apresentado. Estes valores serão verificados por simulação de forma a validar o equacionamento desenvolvido.
+
+Por fim, uma lista de exercícios propostos será apresentada com o intuído de fortalecer a compreensão dos alunos sobre o tema ministrado.
+
+\begin{snugshade}
+	\section{Recursos didáticos} % quadro, giz, retro-projetor, filme, música, quadrinhos, etc.
+\end{snugshade}
+
+\begin{itemize}
+	
+	\item Projetor multimídia, simulador numérico (PSIM), planilha de cálculo (MATHCAD), giz e quadro.
+	
+\end{itemize}
+
+\begin{snugshade}
+	\section{Avaliação} % pode ser realizada com diferentes propósitos (diagnóstica, formativa e somativa). Interessante explicitar a atividade avaliativa e os critérios de correção.
+\end{snugshade}
+
+Ao final da aula o aluno deverá estar apto a resolver uma lista de exercícios propostos contendo os seguintes desafios:
+
+\begin{enumerate}	
+	\item Explicar as etapas de operação da topologia apresentada em aula;
+	\item Desenhar as principais formas de onda do conversor estático;
+	\item Calcular valores médios e eficazes das tensões e correntes inerentes da topologia;
+	\item Verificar a validade dos valores calculados via simulação numérica;
+	\item Montar uma planilha de cálculo contemplando um projeto hipotético;
+	\item Dimensionar os semicondutores de potência para atender a uma certa aplicação;	
+\end{enumerate}
+
+\clearpage
+
+% Referências bibliográficas
+
+\pagestyle{plain}
+\begin{thebibliography}{}
+	
+	\bibitem{IvoBarbi2006} I. Barbi, “Eletrônica de Potência”. Edição do Autor, 6a Edição Florianópolis,
+	2006.
+	
+	\bibitem{DCMBarbi1} D. C. Martins \& I. Barbi, “Eletrônica de Potência: Conversores CC-CC Básicos Não Isolados”. Edição dos Autores, 3a Edição Florianópolis, 2008.
+	
+	\bibitem{DCMBarbi2}	D. C. Martins \& I. Barbi, “Introdução ao Estudo dos Conversores CC-CA”. Edição dos Autores, 2a Edição, Florianópolis-SC, UFSC, Maio/2008.
+	
+	\bibitem{Barbi02} I. Barbi, “Eletrônica de Potência: Projetos de Fontes Chaveadas”. Edição do
+	Autor, 2a Edição, Florianópolis-SC, UFSC, 2007.
+	
+	\bibitem{BarbiFabiana}	I. Barbi \& F. P. de Souza, “Conversores CC-CC Isolados de Alta Freqüênica com Comutação Suave”. Edição dos Autores, Florianópolis, 1999.
+	
+	\bibitem{DCM}	D. C. Martins, “Eletrônica de Potência – Semicondutores de Potência
+	Controlados, Conversores CC-CC Isolados e Conversores CC-CC a Tiristor
+	(Comutação Forçada)”. Publicação Interna – UFSC-INEP, Florianópolis, SC,
+	Maio/2006.
+	
+\end{thebibliography}
+
+
+
+
+
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+% \postextual
+
+
+
+\end{document}
