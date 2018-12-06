@@ -1,5 +1,5 @@
 %%
-%% Customizações do abnTeX2 (http://abnTeX2.googlecode.com) para a Universidade Federal de Santa Catarina
+%% Customizaï¿½ï¿½es do abnTeX2 (http://abnTeX2.googlecode.com) para a Universidade Federal de Santa Catarina
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -10,7 +10,7 @@
 %% version 2005/12/01 or later.
 %%
 %% This work has the LPPL maintenance status `maintained'.
-%% 
+%%
 %% The Current Maintainer of this work is Adriano Ruseler, ruseler@inep.ufsc.br
 %%
 %% Further information about abnTeX2 are available on http://abntex2.googlecode.com/
@@ -20,7 +20,7 @@
 \ProvidesClass{abntex2-modelo-plano-de-aula}[2015/08/05 v1.0 Modelo para plano de aula baseado em abnTeX2]
 
 %
-% Repassa todos os parametros a classe abntex2, 
+% Repassa todos os parametros a classe abntex2,
 \DeclareOption*{%
   \PassOptionsToClass{\CurrentOption}{abntex2}%
 }
@@ -44,32 +44,32 @@
 \newtheorem{postulado}{Postulado}[chapter]
 \newtheorem{teorema}{Teorema}[chapter]
 \newtheorem{conjectura}{Conjectura}[chapter]
-\newtheorem{corolario}{Coral\'ario}[teorema]
+\newtheorem{corolario}{CorolÃ¡rio}[teorema]
 \newtheorem{lema}[teorema]{Lema}
-\newtheorem{proposicao}{Proposi\c{c}\~ao}[teorema]
+\newtheorem{proposicao}{ProposiÃ§Ã£o}[teorema]
 
 
 \theoremstyle{definition} % Commonly used in definitions, conditions, problems and examples.
-\newtheorem{definicao}{Defini\c{c}\~ao}[section]
+\newtheorem{definicao}{DefiniÃ§Ã£o}[section]
 \newtheorem{exemplo}{Exemplo}[section]
-\newtheorem{exercicio}{Exerc\'icio}[section]
-\newtheorem{condicao}{Condi\c{c}\~ao}[section]
+\newtheorem{exercicio}{ExercÃ­cio}[section]
+\newtheorem{condicao}{CondiÃ§Ã£o}[section]
 
 \theoremstyle{remark}
-\newtheorem*{observacao}{Observa\c{c}\~ao}
+\newtheorem*{observacao}{ObservaÃ§Ã£o}
 
 
 % \def\<type>autorefname{<new name>}
 \renewcommand{\tableautorefname}{Tabela}
 \renewcommand{\figureautorefname}{Figura}
-\renewcommand{\chapterautorefname}{Cap\'itulo}
-\renewcommand{\equationautorefname}{Equa\c{c}\~ao}
+\renewcommand{\chapterautorefname}{CapÃ­tulo}
+\renewcommand{\equationautorefname}{EquaÃ§Ã£o}
 
 
-\renewcommand{\familydefault}{cmr} % Fonte padrão utilizada no texto
+\renewcommand{\familydefault}{cmr} % Fonte padrï¿½o utilizada no texto
 \renewcommand{\rmdefault}{cmr} % Selects a roman (i.e., serifed) font family
 \renewcommand{\sfdefault}{cmss} % Selects a sans serif font family
-\renewcommand{\ttdefault}{cmtt} % Selects a monospaced (“typewriter”) font family
+\renewcommand{\ttdefault}{cmtt} % Selects a monospaced (ï¿½typewriterï¿½) font family
 
 
 \renewcommand{\ABNTEXpartfont}{\usefont{T1}{cmr}{bx}{n}} % Apendices, anexos...
@@ -134,7 +134,7 @@
 \providecommand{\imprimirsemestre}{}
 \newcommand{\semestre}[1]{\renewcommand{\imprimirsemestre}{#1}}
 
-% Comandos de dados - Código da disciplina
+% Comandos de dados - Cï¿½digo da disciplina
 \providecommand{\imprimircodigo}{}
 \newcommand{\codigo}[1]{\renewcommand{\imprimircodigo}{#1}}
 
@@ -162,89 +162,89 @@
 \providecommand{\imprimirsala}{}
 \newcommand{\sala}[1]{\renewcommand{\imprimirsala}{#1}}
 
-% Comandos de dados - horário
+% Comandos de dados - horï¿½rio
 \providecommand{\imprimirhorario}{}
 \newcommand{\horario}[1]{\renewcommand{\imprimirhorario}{#1}}
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-% estilo de cabeçalhos e rodapés
+% estilo de cabeï¿½alhos e rodapï¿½s
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
-%%criar um novo 
+%%criar um novo
 \makepagestyle{notasUFSC}
 
-%%cabeçalhos
+%%cabeï¿½alhos
 \makeevenhead{notasUFSC}
 {\imprimircodigo\hskip.1cm--\hskip.1cm\imprimirdisciplina\hskip.1cm--\hskip.1cm\imprimiraula} %%pagina par
 {}
 {EEL/CTC/UFSC}
-\makeoddhead{notasUFSC} %%pagina ímpar ou com oneside
+\makeoddhead{notasUFSC} %%pagina ï¿½mpar ou com oneside
 {\imprimircodigo\hskip.1cm--\hskip.1cm\imprimirdisciplina\hskip.1cm--\hskip.1cm\imprimiraula}
 {}
 {EEL/CTC/UFSC}
 \makeheadrule{notasUFSC}{\textwidth}{\normalrulethickness} %linha
 %\makefootrule{notasUFSC}{\textwidth}{\normalrulethickness}{1pt}
 
-%% rodapé
+%% rodapï¿½
 \makeevenfoot{notasUFSC} %%pagina par
 {}
 {}
-{Página \thepage\ de \thelastpage}
-\makeoddfoot{notasUFSC} %%pagina ímpar ou com oneside
+{PÃ¡gina \thepage\ de \thelastpage}
+\makeoddfoot{notasUFSC} %%pagina ï¿½mpar ou com oneside
 {}
 {}
-{Página \thepage\ de \thelastpage}
+{PÃ¡gina \thepage\ de \thelastpage}
 
 
 %\textsc{\Large \imprimircentro }\\[0.5cm] % Major heading such as course name
 %\textsc{\large \imprimirdepartamento}\\[1.5cm] % Minor heading such as course title
 
-%%criar um novo 
+%%criar um novo
 \makepagestyle{letterUFSC}
 
 \makerunningwidth{letterUFSC}{1.1\textwidth}
 
-%%cabeçalhos
+%%cabeï¿½alhos
 \makeevenhead{letterUFSC}
 {\includegraphics[width=60pt]{logo-ufsc.pdf}} %%pagina par
 {\textsc{\imprimiruniversidade} \\ \textsc{\imprimircentro} \\ \textsc{\imprimirdepartamento} }
 {\includegraphics[width=60pt]{logo-ctc.pdf}}
-\makeoddhead{letterUFSC} %%pagina ímpar ou com oneside
+\makeoddhead{letterUFSC} %%pagina ï¿½mpar ou com oneside
 {\includegraphics[width=60pt]{logo-ufsc.pdf}}
 {\textsc{\imprimiruniversidade} \\ \textsc{\imprimircentro} \\ \textsc{\imprimirdepartamento} }
 {\includegraphics[width=60pt]{logo-ctc.pdf}}
 \makeheadrule{letterUFSC}{1.1\textwidth}{\normalrulethickness} %linha
 \makefootrule{letterUFSC}{1.1\textwidth}{\normalrulethickness}{1pt}
 
-%% rodapé
+%% rodapï¿½
 \makeevenfoot{letterUFSC} %%pagina par
 {{\small \imprimirautor \\ \imprimirlaboratorio \\ \imprimirwebsite}}
 {}
 {\small  \imprimiremail \\ \imprimirtelefone \\ \imprimircelular}
-\makeoddfoot{letterUFSC} %%pagina ímpar ou com oneside
+\makeoddfoot{letterUFSC} %%pagina ï¿½mpar ou com oneside
 {\small \imprimirautor \\ \imprimirlaboratorio \\ \imprimirwebsite}
 {}
 {\small  \imprimiremail \\ \imprimirtelefone \\ \imprimircelular}
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-% IMPRESSOES PADROES 
+% IMPRESSOES PADROES
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
 % ---
-% Impressão da Capa
+% Impressï¿½o da Capa
 \newcommand{\imprimircapaUFSC}{%
-	
+
 %titlepage
 \thispagestyle{empty}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
 
 %\center
 
-\begin{center}  % Center everything on the page	
+\begin{center}  % Center everything on the page
 
 %----------------------------------------------------------------------------------------
 %	LOGO SECTION
@@ -318,9 +318,9 @@
 % ---
 
 % ---
-% Impressão da Capa
+% Impressï¿½o da Capa
 \newcommand{\imprimirletterUFSC}{%
-	
+
 %titlepage
 \thispagestyle{letterUFSC}
 \addtolength{\voffset}{-30pt}
@@ -337,14 +337,14 @@
 \begin{table}[!h]
 	\centering
 	\begin{tabular}{l|l}	\toprule
-		\multicolumn{2}{l}{\textbf{Dados de Identificação}} \\	\hline
+		\multicolumn{2}{l}{\textbf{Dados de IdentificaÃ§Ã£o}} \\	\hline
 		Professor:         &    \imprimirautor           \\	\hline
 		Disciplina:        &   \imprimircodigo {} --  \imprimirdisciplina          \\	\hline
 		Tema:              &    \imprimirtitulo                \\	\hline
 		Semestre:          &    \imprimirsemestre          \\	\hline
 		Turma:          &    \imprimirturma          \\	\hline
 		Sala:              &    \imprimirsala             \\	\hline
-		Horário:   &    \imprimirhorario         \\ \hline	\bottomrule
+		HorÃ¡rio:   &    \imprimirhorario         \\ \hline	\bottomrule
 	\end{tabular}
 \end{table}
 
