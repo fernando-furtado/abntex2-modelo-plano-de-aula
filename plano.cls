@@ -179,11 +179,11 @@
 \makeevenhead{notasUFSC}
 {\imprimircodigo\hskip.1cm--\hskip.1cm\imprimirdisciplina\hskip.1cm--\hskip.1cm\imprimiraula} %%pagina par
 {}
-{DDE/IFMG}
+{FIL/UFT}
 \makeoddhead{notasUFSC} %%pagina �mpar ou com oneside
 {\imprimircodigo\hskip.1cm--\hskip.1cm\imprimirdisciplina\hskip.1cm--\hskip.1cm\imprimiraula}
 {}
-{DDE/IFMG}
+{FIL/UFT}
 \makeheadrule{notasUFSC}{\textwidth}{\normalrulethickness} %linha
 %\makefootrule{notasUFSC}{\textwidth}{\normalrulethickness}{1pt}
 
@@ -208,11 +208,11 @@
 
 %%cabe�alhos
 \makeevenhead{letterUFSC}
-{\includegraphics[width=50pt]{ifmg-vertical.png}} %%pagina par
+{\includegraphics[width=50pt]{logo.png}} %%pagina par
 {\textsc{\imprimiruniversidade} \\ \textsc{\imprimircentro} \\ \textsc{\imprimirdepartamento} }
 {\includegraphics[]{}}
 \makeoddhead{letterUFSC} %%pagina �mpar ou com oneside
-{\includegraphics[width=50]{ifmg-vertical.png}}
+{\includegraphics[width=50]{logo.png}}
 {\textsc{\imprimiruniversidade} \\ \textsc{\imprimircentro} \\ \textsc{\imprimirdepartamento} }
 {\includegraphics[]{}}
 \makeheadrule{letterUFSC}{1.1\textwidth}{\normalrulethickness} %linha
