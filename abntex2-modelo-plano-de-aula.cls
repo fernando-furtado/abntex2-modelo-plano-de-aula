@@ -179,11 +179,11 @@
 \makeevenhead{notasUFSC}
 {\imprimircodigo\hskip.1cm--\hskip.1cm\imprimirdisciplina\hskip.1cm--\hskip.1cm\imprimiraula} %%pagina par
 {}
-{EEL/CTC/UFSC}
+{DDE/IFMG}
 \makeoddhead{notasUFSC} %%pagina �mpar ou com oneside
 {\imprimircodigo\hskip.1cm--\hskip.1cm\imprimirdisciplina\hskip.1cm--\hskip.1cm\imprimiraula}
 {}
-{EEL/CTC/UFSC}
+{DDE/IFMG}
 \makeheadrule{notasUFSC}{\textwidth}{\normalrulethickness} %linha
 %\makefootrule{notasUFSC}{\textwidth}{\normalrulethickness}{1pt}
 
@@ -208,13 +208,13 @@
 
 %%cabe�alhos
 \makeevenhead{letterUFSC}
-{\includegraphics[width=60pt]{logo-ufsc.pdf}} %%pagina par
+{\includegraphics[width=50pt]{ifmg-vertical.png}} %%pagina par
 {\textsc{\imprimiruniversidade} \\ \textsc{\imprimircentro} \\ \textsc{\imprimirdepartamento} }
-{\includegraphics[width=60pt]{logo-ctc.pdf}}
+{\includegraphics[]{}}
 \makeoddhead{letterUFSC} %%pagina �mpar ou com oneside
-{\includegraphics[width=60pt]{logo-ufsc.pdf}}
+{\includegraphics[width=50]{ifmg-vertical.png}}
 {\textsc{\imprimiruniversidade} \\ \textsc{\imprimircentro} \\ \textsc{\imprimirdepartamento} }
-{\includegraphics[width=60pt]{logo-ctc.pdf}}
+{\includegraphics[]{}}
 \makeheadrule{letterUFSC}{1.1\textwidth}{\normalrulethickness} %linha
 \makefootrule{letterUFSC}{1.1\textwidth}{\normalrulethickness}{1pt}
 
@@ -252,7 +252,7 @@
 
 % Upper part of the page. The '~' is needed because \\
 % only works if a paragraph has started.
-\includegraphics[width=0.25\textwidth]{logo-ufsc.pdf}~\\[1cm]
+\includegraphics[width=0.25\textwidth]{ifmg-vertical.png}~\\[1cm]
 
 %----------------------------------------------------------------------------------------
 %	HEADING SECTIONS
@@ -332,7 +332,9 @@
 %	TABLE SECTION
 %----------------------------------------------------------------------------------------
 
-\centerline{\huge \textbf{Plano de aula -- \imprimiraula}}
+\centerline{\huge \textbf{
+%Plano de aula -- % aparecer plano de aula no título
+\imprimiraula}}
 
 \begin{table}[!h]
 	\centering
