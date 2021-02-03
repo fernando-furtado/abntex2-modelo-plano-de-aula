@@ -179,11 +179,11 @@
 \makeevenhead{notasUFSC}
 {\imprimircodigo\hskip.1cm--\hskip.1cm\imprimirdisciplina\hskip.1cm--\hskip.1cm\imprimiraula} %%pagina par
 {}
-{FIL/UFT}
+{FIL/IFPB}
 \makeoddhead{notasUFSC} %%pagina �mpar ou com oneside
 {\imprimircodigo\hskip.1cm--\hskip.1cm\imprimirdisciplina\hskip.1cm--\hskip.1cm\imprimiraula}
 {}
-{FIL/UFT}
+{FIL/IFPB}
 \makeheadrule{notasUFSC}{\textwidth}{\normalrulethickness} %linha
 %\makefootrule{notasUFSC}{\textwidth}{\normalrulethickness}{1pt}
 
